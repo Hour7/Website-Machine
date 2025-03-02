@@ -15,48 +15,83 @@
     <title>Job Recommendation</title>
   </head>
   <body>
-    <nav>
-      <div class="nav__header">
-        <div class="nav__logo">
-          <a href="#" class="logo">Job<span>Recommendation</span></a>
+      <nav>
+        <div class="nav__header">
+          <div class="nav__logo">
+            <a href="#" class="logo">Job<span>Recommendation</span></a>
+          </div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-line"></i>
+          </div>
         </div>
-        <div class="nav__menu__btn" id="menu-btn">
-          <i class="ri-menu-line"></i>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#job">Jobs</a></li>
+          <li><a href="#service">Services</a></li>
+          <li><button class="btn" id="register-btn">Register</button></li>
+        </ul>
+      </nav>
+
+      <!-- Header -->
+      <header class="section__container header__container" id="home">
+        <img class="google" src="assets/google.png" alt="header" />
+        <img class="bongthom" src="image/bongthom.png" alt="header" />
+        <img class="cambojob" src="image/cambojob.png" alt="header" />
+        <img class="camhr" src="image/camhr.png" alt="header" />
+        <img class="linkedin" src="assets/linkedin.png" alt="header" />
+        <img class="khmer24" src="image/khmer24.png" alt="header" />
+        <h2>
+          <img src="assets/bag.png" alt="bag" />
+          No.1 Job Recommendation
+        </h2>
+        <h1>Upload, Apply &<br />Get Your <span>Dream Job</span></h1>
+        <p>
+          Your future starts here. Discover countless opportunities, take action
+          by applying to jobs that match your skills and aspirations, and
+          transform your career.
+        </p>
+        <div class="header__btns">
+          <button class="btn">Browse Jobs</button>
+          <a href="#">
+            <span><i class="ri-play-fill"></i></span>
+            How It Works?
+          </a>
+        </div>
+      </header>
+
+      <!-- Modal -->
+      <div class="modal" id="modal">
+        <div class="modal__content">
+          <span class="modal__close" id="close-btn">&times;</span>
+          <h2>Welcome</h2>
+          <form id="login-form">
+            <div class="form__group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" placeholder="Enter your email" />
+            </div>
+            <div class="form__group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" placeholder="Enter your password" />
+            </div>
+            <button type="submit" class="btn">Login</button>
+          </form>
+          <p>Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+
+          <form id="register-form" style="display: none;">
+            <div class="form__group">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" placeholder="Enter your email" />
+            </div>
+            <div class="form__group">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" placeholder="Create a password" />
+            </div>
+            <button type="submit" class="btn">Register</button>
+          </form>
         </div>
       </div>
-      <ul class="nav__links" id="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#job">Jobs</a></li>
-        <li><a href="#service">Services</a></li>
-        <li><button class="btn">Register</button></li>
-      </ul>
-    </nav>
-    <header class="section__container header__container" id="home">
-      <img class="google" src="assets/google.png" alt="header" />
-      <img class="bongthom" src="image/bongthom.png" alt="header" />
-      <img class="cambojob" src="image/cambojob.png" alt="header" />
-      <img class="camhr" src="image/camhr.png" alt="header" />
-      <img class="linkedin" src="assets/linkedin.png" alt="header" />
-      <img class="khmer24" src="image/khmer24.png" alt="header" />
-      <h2>
-        <img src="assets/bag.png" alt="bag" />
-        No.1 Job Recommendation
-      </h2>
-      <h1>Upload, Apply &<br />Get Your <span>Dream Job</span></h1>
-      <p>
-        Your future starts here. Discover countless opportunities, take action
-        by applying to jobs that match your skills and aspirations, and
-        transform your career.
-      </p>
-      <div class="header__btns">
-        <button class="btn">Browse Jobs</button>
-        <a href="#">
-          <span><i class="ri-play-fill"></i></span>
-          How It Works?
-        </a>
-      </div>  
-    </header>
+
     <section class="steps" id="about">
       <div class="section__container steps__container">
         <h2 class="section__header">
@@ -219,8 +254,7 @@
               <p>500+ jobs openings</p>
             </a>
           </div>
-        
-        
+
       </div>
       <div class="explore__btn">
         <a href="https://www.camhr.com/a/job?page=1&param=%7B%22page%22%3A1,%22size%22%3A50%7D">

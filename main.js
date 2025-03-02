@@ -97,3 +97,34 @@ fileInput.addEventListener('change', function (event) {
     fileNameDisplay.textContent = ''; // Clear the file name if no file is selected
   }
 });
+ // Get elements
+ const registerBtn = document.getElementById("register-btn");
+ const modal = document.getElementById("modal");
+ const closeBtn = document.getElementById("close-btn");
+ const switchToRegister = document.getElementById("switch-to-register");
+ const loginForm = document.getElementById("login-form");
+ const registerForm = document.getElementById("register-form");
+
+ // Open modal when Register button is clicked
+ registerBtn.addEventListener("click", () => {
+   modal.style.display = "block";
+ });
+
+ // Close modal when close button is clicked
+ closeBtn.addEventListener("click", () => {
+   modal.style.display = "none";
+ });
+
+ // Switch to Register form
+ switchToRegister.addEventListener("click", (e) => {
+   e.preventDefault();
+   loginForm.style.display = "none";
+   registerForm.style.display = "block";
+ });
+
+ // Close modal when clicking outside the modal
+ window.addEventListener("click", (e) => {
+   if (e.target === modal) {
+     modal.style.display = "none";
+   }
+ });
