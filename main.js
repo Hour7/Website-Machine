@@ -1,0 +1,99 @@
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
+
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
+
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-line");
+});
+
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
+
+ScrollReveal().reveal(".header__container h2", {
+  ...scrollRevealOption,
+});
+ScrollReveal().reveal(".header__container h1", {
+  ...scrollRevealOption,
+  delay: 500,
+});
+ScrollReveal().reveal(".header__container p", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+ScrollReveal().reveal(".header__btns", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+
+ScrollReveal().reveal(".steps__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+ScrollReveal().reveal(".explore__card", {
+  duration: 1000,
+  interval: 500,
+});
+
+ScrollReveal().reveal(".job__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+ScrollReveal().reveal(".offer__card", {
+  ...scrollRevealOption,
+  interval: 500,
+});
+
+const swiper = new Swiper(".swiper", {
+  loop: true,
+});
+ // JavaScript for Interactivity
+ document.addEventListener('DOMContentLoaded', function () {
+  const stepsCards = document.querySelectorAll('.steps__card');
+  const contentSections = document.querySelectorAll('.content-section');
+
+  stepsCards.forEach(card => {
+    card.addEventListener('click', function () {
+      const target = this.getAttribute('data-target');
+
+      // Hide all content sections
+      contentSections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Show the target content section
+      document.getElementById(target).classList.add('active');
+    });
+  });
+});
+
+// Function to close the content section
+function closeContentSection(sectionId) {
+  const section = document.getElementById(sectionId);
+  section.classList.remove('active');
+}
+// Get the file input and file name display elements
+const fileInput = document.getElementById('cv-upload');
+const fileNameDisplay = document.getElementById('file-name');
+
+// Add an event listener to the file input
+fileInput.addEventListener('change', function (event) {
+  const file = event.target.files[0]; // Get the selected file
+  if (file) {
+    fileNameDisplay.textContent = `Uploaded file: ${file.name}`; // Display the file name
+  } else {
+    fileNameDisplay.textContent = ''; // Clear the file name if no file is selected
+  }
+});
