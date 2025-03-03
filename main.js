@@ -128,3 +128,28 @@ fileInput.addEventListener('change', function (event) {
      modal.style.display = "none";
    }
  });
+ document.getElementById('switch-to-register').addEventListener('click', function (e) {
+  e.preventDefault();
+  // Hide login form
+  document.getElementById('login-form').style.display = 'none';
+  // Show register form
+  document.getElementById('register-form').style.display = 'block';
+  // Hide social login buttons and divider
+  document.getElementById('social-login').style.display = 'none';
+  document.getElementById('form-divider').style.display = 'none';
+  // Hide "Don't have an account? Register" link
+  document.getElementById('switch-to-register-footer').style.display = 'none';
+});
+
+document.getElementById('switch-to-login').addEventListener('click', function (e) {
+  e.preventDefault();
+  // Show login form
+  document.getElementById('login-form').style.display = 'block';
+  // Hide register form
+  document.getElementById('register-form').style.display = 'none';
+  // Show social login buttons and divider
+  document.getElementById('social-login').style.display = 'block';
+  document.getElementById('form-divider').style.display = 'block';
+  // Show "Don't have an account? Register" link
+  document.getElementById('switch-to-register-footer').style.display = 'block';
+});

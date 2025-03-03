@@ -29,7 +29,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#job">Jobs</a></li>
           <li><a href="#service">Services</a></li>
-          <li><button class="btn" id="register-btn">Register</button></li>
+          <li><button class="btn" id="register-btn">Get Started</button></li>
         </ul>
       </nav>
 
@@ -60,37 +60,91 @@
         </div>
       </header>
 
-      <!-- Modal -->
-      <div class="modal" id="modal">
-        <div class="modal__content">
-          <span class="modal__close" id="close-btn">&times;</span>
-          <h2>Welcome</h2>
-          <form id="login-form">
-            <div class="form__group">
-              <label for="login-email">Email</label>
-              <input type="email" id="login-email" placeholder="Enter your email" />
-            </div>
-            <div class="form__group">
-              <label for="login-password">Password</label>
-              <input type="password" id="login-password" placeholder="Enter your password" />
-            </div>
-            <button type="submit" class="btn">Login</button>
-          </form>
-          <p>Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+<!-- Modal -->
+<div class="modal" id="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal__content">
+    <!-- Close button -->
+    <button class="modal__close" id="close-btn" aria-label="Close modal">&times;</button>
 
-          <form id="register-form" style="display: none;">
-            <div class="form__group">
-              <label for="register-email">Email</label>
-              <input type="email" id="register-email" placeholder="Enter your email" />
-            </div>
-            <div class="form__group">
-              <label for="register-password">Password</label>
-              <input type="password" id="register-password" placeholder="Create a password" />
-            </div>
-            <button type="submit" class="btn">Register</button>
-          </form>
+    <!-- Login Form -->
+    <h2 id="modal-title">Welcome</h2>
+
+    <!-- Social Login Buttons -->
+    <div class="social-login" id="social-login">
+      <button class="btn btn--social btn--facebook">
+        <i class="fab fa-facebook-f"></i> Continue with Facebook
+      </button>
+      <button class="btn btn--social btn--google">
+        <i class="fab fa-google"></i> Continue with Google
+      </button>
+    </div>
+
+    <p class="form__divider" id="form-divider">or</p>
+
+    <form id="login-form" class="form">
+      <div class="form__group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="Enter your email" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="Enter your password" required aria-required="true" />
+        <a href="#" class="form__link">Forgot password?</a>
+      </div>
+      <button type="submit" class="btn btn--primary">Login</button>
+    </form>
+
+    <!-- Switch to Register -->
+    <p class="form__footer" id="switch-to-register-footer">
+      Don't have an account? <a href="#" id="switch-to-register" class="form__link">Register</a>
+    </p>
+
+    <!-- Register Form -->
+    <form id="register-form" class="form" style="display: none;">
+      <div class="form__group">
+        <label for="register-username">Username</label>
+        <input type="text" id="register-username" placeholder="Enter your username" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="register-phone">Phone Number</label>
+        <div class="phone-input">
+          <select id="register-phone-region" aria-label="Select region">
+            <option value="+855">+855 (Cambodia)</option>
+            <option value="+1">+1 (USA)</option>
+            <!-- Add more regions as needed -->
+          </select>
+          <input type="tel" id="register-phone" placeholder="Enter your phone number" required aria-required="true" />
         </div>
       </div>
+      <div class="form__group">
+        <label for="register-age">Age</label>
+        <input type="number" id="register-age" placeholder="Enter your age" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="register-dob">Date of Birth</label>
+        <input type="date" id="register-dob" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="register-email">Email</label>
+        <input type="email" id="register-email" placeholder="Enter your email" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="register-password">Password</label>
+        <input type="password" id="register-password" placeholder="Create a password" required aria-required="true" />
+      </div>
+      <div class="form__group">
+        <label for="register-confirm-password">Confirm Password</label>
+        <input type="password" id="register-confirm-password" placeholder="Confirm your password" required aria-required="true" />
+      </div>
+      <button type="submit" class="btn btn--primary">Register</button>
+
+      <!-- Back to Login Link -->
+      <p class="form__footer">
+        Already have an account? <a href="#" id="switch-to-login" class="form__link">Back to Login</a>
+      </p>
+    </form>
+  </div>
+</div>
 
     <section class="steps" id="about">
       <div class="section__container steps__container">

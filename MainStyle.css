@@ -73,7 +73,7 @@
   font-size: 1rem;
   color: var(--white);
   background-color: var(--primary-color);
-  border-radius: 5px;
+  border-radius: 20px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -84,6 +84,22 @@
 }
 
 /* Modal Styles */
+#social-login,
+#form-divider,
+#switch-to-register-footer,
+#login-form,
+#register-form {
+  transition: opacity 0.3s ease, display 0.3s ease;
+}
+
+#social-login.hidden,
+#form-divider.hidden,
+#switch-to-register-footer.hidden,
+#login-form.hidden,
+#register-form.hidden {
+  opacity: 0;
+  display: none;
+}
 .modal {
   display: none;
   position: fixed;
@@ -113,12 +129,15 @@
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--primary-color);
+  background: none;
+  border: none;
 }
 
 .modal__close:hover {
   color: var(--primary-color-dark);
 }
 
+/* Form Styles */
 .form__group {
   margin-bottom: 1rem;
 }
@@ -137,6 +156,129 @@
   font-size: 1rem;
 }
 
+.form__group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Social Login Buttons */
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn--social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn--facebook {
+  background-color: #1877f2;
+  color: white;
+}
+
+.btn--facebook:hover {
+  background-color: #166fe5;
+}
+
+.btn--google {
+  background-color: #db4437;
+  color: white;
+}
+
+.btn--google:hover {
+  background-color: #c23321;
+}
+
+/* Divider */
+.form__divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  color: #666;
+  position: relative;
+}
+
+.form__divider::before,
+.form__divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ccc;
+}
+
+.form__divider::before {
+  margin-right: 0.5rem;
+}
+
+.form__divider::after {
+  margin-left: 0.5rem;
+}
+
+/* Phone Input */
+.phone-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.phone-input select {
+  width: 30%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.phone-input input {
+  width: 70%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Form Footer Links */
+.form__footer {
+  text-align: center;
+  margin-top: 1rem;
+  color: #666;
+}
+
+.form__link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.form__link:hover {
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.btn--primary {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn--primary:hover {
+  background-color: var(--primary-color-dark);
+}
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
