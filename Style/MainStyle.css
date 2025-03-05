@@ -152,7 +152,7 @@
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
 }
 
@@ -169,7 +169,18 @@
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
-
+#modal-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+#login-email,
+#login-password{
+  border-radius: 15px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
 .btn--social {
   display: flex;
   align-items: center;
@@ -177,29 +188,43 @@
   gap: 8px;
   width: 100%;
   padding: 0.75rem;
-  border: none;
-  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  background-color: white;
+  border-color: grey;
+  border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .btn--facebook {
-  background-color: #1877f2;
-  color: white;
+  color: #166fe5;
 }
 
 .btn--facebook:hover {
+  color: white;
   background-color: #166fe5;
 }
-
+.social-logo {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+.social-logo-f {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+}
 .btn--google {
-  background-color: #db4437;
-  color: white;
+  padding-top: 16px;
+  padding-bottom: 20px;
+  color: #4285F4;
 }
 
 .btn--google:hover {
-  background-color: #c23321;
+  color: white;
+  background-color: #4285F4;
 }
 
 /* Divider */
@@ -235,7 +260,7 @@
   width: 30%;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
 }
 
@@ -243,7 +268,7 @@
   width: 70%;
   padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
 }
 
@@ -256,6 +281,7 @@
 
 .form__link {
   color: var(--primary-color);
+  font-size: 15px;
   text-decoration: none;
 }
 
@@ -270,7 +296,7 @@
   background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -323,8 +349,8 @@ nav {
   cursor: pointer;
   margin-inline: auto;
   z-index: 1000;
-  margin-bottom: 30px;
   border-radius: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.116);
 }
 
@@ -1051,6 +1077,7 @@ nav {
 }
 
 .footer{
+  border-top: 1px solid #95939392;
   background-image: url("/assets/blur3.png");
   background-position: center center;
   background-size: cover;

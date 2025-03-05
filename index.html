@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="Style/MainStyle.css">
+    <link rel="shortcut icon" href="/image/find1.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
@@ -25,7 +26,7 @@
           </div>
         </div>
         <ul class="nav__links" id="nav-links">
-          <li><a href="#home">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="page/offer.html">About</a></li>
           <li><a href="#job">Jobs</a></li>
           <li><a href="#service">Services</a></li>
@@ -41,10 +42,10 @@
         <img class="camhr" src="image/camhr.png" alt="header" />
         <img class="linkedin" src="assets/linkedin.png" alt="header" />
         <img class="khmer24" src="image/khmer24.png" alt="header" />
-        <h2>
+        <!-- <h2>
           <img src="assets/bag.png" alt="bag" />
           No.1 Job Recommendation
-        </h2>
+        </h2> -->
         <h1>Upload, Apply &<br />Get Your <span>Dream Job</span></h1>
         <p>
           Your future starts here. Discover countless opportunities, take action
@@ -52,101 +53,106 @@
           transform your career.
         </p>
         <div class="header__btns">
-          <button class="btn">Browse Jobs</button>
-          <a href="#">
+          <a href="#BrowseJobs">
+            <button class="btn">Browse Jobs</button>
+          </a>
+          
+          <a href="#Step">
             <span><i class="ri-play-fill"></i></span>
             How It Works?
           </a>
         </div>
       </header>
 
-<!-- Modal -->
-<div class="modal" id="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
-  <div class="modal__content">
-    <!-- Close button -->
-    <button class="modal__close" id="close-btn" aria-label="Close modal">&times;</button>
+      <!-- Modal -->
+      <div class="modal" id="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal__content">
+          <!-- Close button -->
+          <button class="modal__close" id="close-btn" aria-label="Close modal">&times;</button>
 
-    <!-- Login Form -->
-    <h2 id="modal-title">Welcome</h2>
+          <!-- Login Form -->
+          <h2 id="modal-title">Welcome</h2>
 
-    <!-- Social Login Buttons -->
-    <div class="social-login" id="social-login">
-      <button class="btn btn--social btn--facebook">
-        <i class="fab fa-facebook-f"></i> Continue with Facebook
-      </button>
-      <button class="btn btn--social btn--google">
-        <i class="fab fa-google"></i> Continue with Google
-      </button>
-    </div>
+          <!-- Social Login Buttons -->
+          <div class="social-login" id="social-login">
+            <button class="btn btn--social btn--facebook">
+              <img class="social-logo-f" src="/image/facebook.png" alt="Facebook logo">
+              <i class="fab fa-facebook-f"></i> Continue with Facebook
+            </button>
+            <button class="btn btn--social btn--google">
+              <img class="social-logo" src="/image/google.png" alt="Google logo">
+              <i class="fab fa-google"></i> Continue with Google
+            </button>
+          </div>
 
-    <p class="form__divider" id="form-divider">or</p>
+          <p class="form__divider" id="form-divider">or</p>
 
-    <form id="login-form" class="form">
-      <div class="form__group">
-        <label for="login-email">Email</label>
-        <input type="email" id="login-email" placeholder="Enter your email" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="login-password">Password</label>
-        <input type="password" id="login-password" placeholder="Enter your password" required aria-required="true" />
-        <a href="#" class="form__link">Forgot password?</a>
-      </div>
-      <button type="submit" class="btn btn--primary">Login</button>
-    </form>
+          <form id="login-form" class="form">
+            <div class="form__group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" placeholder="Enter your email" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" placeholder="Enter your password" required aria-required="true" />
+              <a href="#" class="form__link">Forgot password?</a>
+            </div>
+            <button type="submit" class="btn btn--primary">Login</button>
+          </form>
 
-    <!-- Switch to Register -->
-    <p class="form__footer" id="switch-to-register-footer">
-      Don't have an account? <a href="#" id="switch-to-register" class="form__link">Register</a>
-    </p>
+          <!-- Switch to Register -->
+          <p class="form__footer" id="switch-to-register-footer">
+            Don't have an account? <a href="#" id="switch-to-register" class="form__link">Register</a>
+          </p>
 
-    <!-- Register Form -->
-    <form id="register-form" class="form" style="display: none;">
-      <div class="form__group">
-        <label for="register-username">Username</label>
-        <input type="text" id="register-username" placeholder="Enter your username" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="register-phone">Phone Number</label>
-        <div class="phone-input">
-          <select id="register-phone-region" aria-label="Select region">
-            <option value="+855">+855 (Cambodia)</option>
-            <option value="+1">+1 (USA)</option>
-            <!-- Add more regions as needed -->
-          </select>
-          <input type="tel" id="register-phone" placeholder="Enter your phone number" required aria-required="true" />
+          <!-- Register Form -->
+          <form id="register-form" class="form" style="display: none;">
+            <div class="form__group">
+              <label for="register-username">Username</label>
+              <input type="text" id="register-username" placeholder="Enter your username" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="register-phone">Phone Number</label>
+              <div class="phone-input">
+                <select id="register-phone-region" aria-label="Select region">
+                  <option value="+855">+855 (Cambodia)</option>
+                  <option value="+1">+1 (USA)</option>
+                  <!-- Add more regions as needed -->
+                </select>
+                <input type="tel" id="register-phone" placeholder="Enter your phone number" required aria-required="true" />
+              </div>
+            </div>
+            <div class="form__group">
+              <label for="register-age">Age</label>
+              <input type="number" id="register-age" placeholder="Enter your age" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="register-dob">Date of Birth</label>
+              <input type="date" id="register-dob" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="register-email">Email</label>
+              <input type="email" id="register-email" placeholder="Enter your email" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" placeholder="Create a password" required aria-required="true" />
+            </div>
+            <div class="form__group">
+              <label for="register-confirm-password">Confirm Password</label>
+              <input type="password" id="register-confirm-password" placeholder="Confirm your password" required aria-required="true" />
+            </div>
+            <button type="submit" class="btn btn--primary">Register</button>
+
+            <!-- Back to Login Link -->
+            <p class="form__footer">
+              Already have an account? <a href="#" id="switch-to-login" class="form__link">Back to Login</a>
+            </p>
+          </form>
         </div>
       </div>
-      <div class="form__group">
-        <label for="register-age">Age</label>
-        <input type="number" id="register-age" placeholder="Enter your age" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="register-dob">Date of Birth</label>
-        <input type="date" id="register-dob" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="register-email">Email</label>
-        <input type="email" id="register-email" placeholder="Enter your email" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="register-password">Password</label>
-        <input type="password" id="register-password" placeholder="Create a password" required aria-required="true" />
-      </div>
-      <div class="form__group">
-        <label for="register-confirm-password">Confirm Password</label>
-        <input type="password" id="register-confirm-password" placeholder="Confirm your password" required aria-required="true" />
-      </div>
-      <button type="submit" class="btn btn--primary">Register</button>
 
-      <!-- Back to Login Link -->
-      <p class="form__footer">
-        Already have an account? <a href="#" id="switch-to-login" class="form__link">Back to Login</a>
-      </p>
-    </form>
-  </div>
-</div>
-
-    <section class="steps" id="about">
+    <section class="steps" id="Step">
       <div class="section__container steps__container">
         <h2 class="section__header">
           Secure Your Dream Job in 3 <span>Effortless Steps</span>
@@ -237,7 +243,7 @@
       <div id="saved-jobs"></div>
     </div>
 
-    <section class="section__container explore__container">
+    <section id="BrowseJobs" class="section__container explore__container">
       <h2 class="section__header">
         <span>Countless Career Options</span> Are Waiting For You To Explore
       </h2>
