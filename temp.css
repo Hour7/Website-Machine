@@ -1,0 +1,130 @@
+/* styles.css */
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   background-color: #f9f9f9;
+   color: #333;
+}
+
+.sr-only-list {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   border: 0;
+}
+
+.job-recommendations-list {
+   max-width: 1000px;
+   margin: 20px auto;
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+}
+
+.job-list-list {
+   list-style: none;
+   padding: 0;
+}
+
+.job-item-list {
+   width: 100%; 
+   height: 200px; 
+   background-image: url('image/background_list_job1.png');
+   background-size: cover; 
+   background-position: center; 
+   background-repeat: no-repeat; 
+   border-radius: 8px;
+   margin-top: 20px;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   transition: all 0.3s ease-in-out;
+}
+
+.job-item-list:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.job-card-list {
+   padding: 20px;
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+}
+
+.job-header-list {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.job-icon-list {
+   width: 40px;
+   height: 40px;
+}
+
+.job-title-wrapper-list {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.job-title-list {
+   margin: 0;
+   font-size: 1.25rem;
+   color: #333;
+   font-weight: bold;
+}
+
+.bookmark-btn-list {
+   background: none;
+   border: none;
+   cursor: pointer;
+   font-size: 1.5rem;
+   color: #666;
+   transition: color 0.3s ease;
+}
+
+.bookmark-btn-list:hover {
+   color: #ff5a5f;
+}
+
+.job-info-list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 15px;
+}
+
+.job-detail-list {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   color: #666;
+   font-size: 0.9rem;
+}
+
+.icon-list {
+   width: 16px;
+   height: 16px;
+}
+
+.job-footer-list {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-top: 1px solid #eee;
+   padding-top: 10px;
+}
+
+.company-logo-list {
+   width: 80px;
+   height: auto;
+}

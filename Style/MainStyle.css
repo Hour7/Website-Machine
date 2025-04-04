@@ -371,6 +371,7 @@ nav {
 
 .nav__links {
   position: absolute;
+  
   top: 65px;
   left: 0;
   width: 100%;
@@ -391,6 +392,7 @@ nav {
 }
 
 .nav__links a {
+  margin-right: 20px;
   font-weight: 500;
   color: var(--text-dark);
 }
@@ -404,7 +406,7 @@ nav {
   isolation: isolate;
   overflow: hidden;
   cursor: pointer;
-  background-image: url("/assets/blur8.png");
+  background-image: url("/assets/main.png");
   background-position: center center;
   background-size: cover; /* Ensures the image covers the entire container */
   background-repeat: no-repeat;
@@ -470,9 +472,9 @@ nav {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 500;
-  color: var(--text-dark);
+  color: white;
 }
 
 .header__btns a span {
@@ -579,7 +581,7 @@ nav {
 }
 
 .steps__card:hover {
-  transform: translateY(-5px); /* Move the card up by 5px on hover */
+  background-color: #4a91e299;
   box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2); /* Increase shadow for a lifting effect */
 }
 
@@ -680,58 +682,212 @@ nav {
 .close-btn:hover {
   color: #ff6347; /* Change color on hover */
 }
-
-/* Styles for the upload container */
+/* Upload container styles */
 .upload-container {
-  margin-top: 20px;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Styles for the file input label */
+/* Upload label styles */
 .upload-label {
-  display: inline-block;
-  padding: 15px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
   background-color: var(--white);
-  border: 2px dashed #ccc;
+  border: 2px dashed #d1d5db;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-height: 200px;
 }
 
 .upload-label:hover {
-  background-color: #f0f0f0;
-  border-color: #0073e6;
+  border-color: #3b82f6;
+  background-color: #f8fafc;
+}
+
+.upload-label.drag-over {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.upload-icon {
+  font-size: 2.5rem;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .upload-text {
-  font-size: 16px;
-  color: #0073e6;
-  font-weight: bold;
+  font-size: 1.1rem;
+  color: #1e293b;
+  font-weight: 500;
 }
 
-/* Hide the default file input */
-.upload-file {
+/* File name styles */
+.file-name {
+  font-size: 0.9rem;
+  color: #64748b;
+  font-weight: normal;
+  margin-top: 0.5rem;
+}
+
+/* File help text */
+.file-help-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+/* Upload footer */
+.upload-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+/* Upload submit button */
+.upload-submit-btn {
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.upload-submit-btn:hover:not(:disabled) {
+  background-color: #2563eb;
+}
+
+.upload-submit-btn:disabled {
+  background-color: #e2e8f0;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Progress indicator */
+.upload-progress {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.hidden {
   display: none;
 }
 
-/* Styles for the help text */
-.file-help-text {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #666;
+/* Close button improvements */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s;
 }
-/* Styles for the file name display */
-.file-name {
-  display: block;
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-  font-weight: normal;
+
+.close-btn:hover {
+  background-color: #f1f5f9;
+  color: #475569;
+}
+
+/* Section description */
+.section-description {
+  color: #475569;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+/* Smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Make step cards look clickable */
+.steps__card {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.steps__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Highlight animation */
+.highlight-section {
+  animation: highlight-fade 2s ease-out;
+}
+
+@keyframes highlight-fade {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.content-section {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  margin: 2rem 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 #saved-jobs {
   margin-top: 10px;
   padding: 10px;
-  border: 1px dashed #ccc;
-  border-radius: 5px;
 }
 
 .content-section {
@@ -740,7 +896,7 @@ nav {
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
+  max-width: 1000px;
   margin: 30px auto;
 }
 
@@ -753,12 +909,11 @@ nav {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family:Arial, Helvetica, sans-serif;
   font-weight: bold;
   line-height: 1.8;
   font-size: 18px;
 }
-
 .cv-link {
   background-color: white;
   padding: 15px;
@@ -766,6 +921,25 @@ nav {
   margin: 20px 0;
   border-radius: 8px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.cv-link:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0px 6px 12px rgba(130, 130, 130, 0.3);
+}
+.cv-link a {
+  text-decoration: none;
+  color: #095caf;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  font-style: normal;
+  transition: color 0.3s ease;
+}
+.cv-link{
+  background-image: url("/assets/blur.png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
 }
 
 .cv-link:hover {
@@ -776,7 +950,10 @@ nav {
 .cv-link a {
   text-decoration: none;
   color: #095caf;
-  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  font-style: normal;
   transition: color 0.3s ease;
 }
 
@@ -784,21 +961,178 @@ nav {
   color: #ff6347;
   text-decoration: underline;
 }
+
+/* Job List Styles */ 
+.job-section-list{
+  cursor: pointer;
+}
+.sr-only-list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.job-recommendations-list {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.job-list-list {
+  list-style: none;
+  
+  padding: 0;
+}
+
+.job-item-list {
+  width: 100%; 
+  height: 220px; 
+  background-image: url("/image/background_list_job3.png");
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  border-radius: 8px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.job-item-list:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.job-card-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.job-header-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-icon-list {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 25px;
+}
+
+.job-title-wrapper-list {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-title-list {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: #26b2fd;
+  text-decoration-thickness: 2px; /* Bold the underline */
+  margin-bottom: 0;
+  font-size: 1.25rem;
+  color: #333;
+  font-weight: bold;
+  letter-spacing: 0.05em; /* Adds space between letters */
+}
+
+.bookmark-icon-list {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.bookmark-btn-list {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.bookmark-btn-list:hover {
+  color: #ff5a5f;
+}
+
+.job-info-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 30px;
+  
+  gap: 10px;
+}
+
+.job-detail-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.icon-list {
+  width: 16px;
+  height: 16px;
+}
+
+.job-footer-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #b1b1b1;
+  padding-top: 10px;
+}
+
+.company-logo-list {
+  width: 80px;
+  height: auto;
+}
+
+/*------------------------*/
 .explore__grid {
+  
   margin-block: 4rem;
   display: grid;
   gap: 1rem;
 }
+.explore__image {
+  
+  width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between image and text */
+  transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
 
+}
+
+.explore__image:hover {
+  transform: scale(1.1); /* Zoom the image by 10% */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
+}
 .explore__card {
+  cursor: pointer;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
 }
 
+
 .explore__card:hover {
-  background-color: var(--primary-color);
+  background-color: #4a91e269;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
 }
 .explore__card:active{
@@ -873,11 +1207,11 @@ nav {
 }
 
 .explore__card:hover h4 {
-  color: var(--white);
+  color: #ff6b6b;
 }
 
 .explore__card:hover p {
-  color: var(--extra-light);
+  color: var(--text-dark);
 }
 
 .explore__btn {
@@ -896,11 +1230,14 @@ nav {
   border-radius: 5px;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
+  transition: transform 0.3s ease;
 }
 .job__card:active{
   box-shadow: 3px 3px 10px rgb(91, 91, 91);
 }
 .job__card:hover {
+  transform: scale(1.1); /* Zoom the image by 10% */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
   background-color: var(--primary-color);
 }
 
@@ -997,8 +1334,14 @@ nav {
 }
 
 .offer__card img {
+  cursor: pointer;
   margin-bottom: 1rem;
   border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+.offer__card img:hover {
+  transform: scale(1.1); /* Zoom the image by 10% */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for better effect */
 }
 
 .offer__details {
@@ -1082,6 +1425,7 @@ nav {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  height: 400px;
   padding: 4rem 0;
   margin-top: 50px;
   background-color: rgba(244, 244, 244, 0.084);

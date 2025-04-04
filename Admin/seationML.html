@@ -1,0 +1,379 @@
+
+<a href="#" class="nav-item" data-tab="ml-settings">
+   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+       <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+       <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+       <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+   </svg>
+   <span>ML Settings</span>
+</a>
+
+<!-- ML Settings Tab -->
+<section class="content-tab" id="ml-settings">
+   <div class="page-header">
+       <h1>ML Model Settings</h1>
+       <div class="header-actions">
+           <button class="btn btn-outline" id="train-model-btn">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                   <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                   <line x1="16" y1="8" x2="2" y2="22"></line>
+                   <line x1="17.5" y1="15" x2="9" y2="15"></line>
+               </svg>
+               Train Model
+           </button>
+           <button class="btn btn-primary">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                   <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                   <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                   <polyline points="7 3 7 8 15 8"></polyline>
+               </svg>
+               Save Changes
+           </button>
+       </div>
+   </div>
+
+   <div class="alert info">
+       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+           <circle cx="12" cy="12" r="10"></circle>
+           <line x1="12" y1="16" x2="12" y2="12"></line>
+           <line x1="12" y1="8" x2="12.01" y2="8"></line>
+       </svg>
+       <div>
+           <h4>Model Training Status</h4>
+           <p>Last model training completed on April 3, 2023 at 14:32. Current model version: v2.4.1</p>
+       </div>
+   </div>
+
+   <div class="tabs">
+       <div class="tabs-list">
+           <button class="tab-button active" data-tab="general">General Settings</button>
+           <button class="tab-button" data-tab="features">Feature Weights</button>
+           <button class="tab-button" data-tab="data">Data Sources</button>
+           <button class="tab-button" data-tab="advanced">Advanced</button>
+       </div>
+
+       <div class="tab-content active" id="general-tab">
+           <div class="card">
+               <div class="card-header">
+                   <h2>Model Configuration</h2>
+                   <p>Configure the core settings for the recommendation engine.</p>
+               </div>
+               <div class="card-content">
+                   <div class="form-grid-2">
+                       <div class="form-group">
+                           <label for="model-type">Model Type</label>
+                           <select id="model-type" class="select-input">
+                               <option value="collaborative">Collaborative Filtering</option>
+                               <option value="content">Content-Based</option>
+                               <option value="hybrid" selected>Hybrid Approach</option>
+                               <option value="deep">Deep Learning</option>
+                           </select>
+                       </div>
+                       <div class="form-group">
+                           <label for="algorithm">Algorithm</label>
+                           <select id="algorithm" class="select-input">
+                               <option value="xgboost" selected>XGBoost</option>
+                               <option value="random-forest">Random Forest</option>
+                               <option value="neural-network">Neural Network</option>
+                               <option value="svm">SVM</option>
+                           </select>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label for="threshold">Match Threshold</label>
+                           <span>75%</span>
+                       </div>
+                       <input type="range" id="threshold" min="0" max="100" value="75" class="slider">
+                       <p class="help-text">Minimum score required to consider a job match suitable for recommendation.</p>
+                   </div>
+
+                   <div class="form-group switch-group">
+                       <div>
+                           <label for="auto-train">Automatic Training</label>
+                           <p class="help-text">Automatically train the model when new data is available.</p>
+                       </div>
+                       <label class="switch">
+                           <input type="checkbox" id="auto-train" checked>
+                           <span class="slider round"></span>
+                       </label>
+                   </div>
+
+                   <div class="form-group switch-group">
+                       <div>
+                           <label for="feedback-loop">Feedback Loop</label>
+                           <p class="help-text">Incorporate user feedback to improve recommendations.</p>
+                       </div>
+                       <label class="switch">
+                           <input type="checkbox" id="feedback-loop" checked>
+                           <span class="slider round"></span>
+                       </label>
+                   </div>
+               </div>
+           </div>
+
+           <div class="card">
+               <div class="card-header">
+                   <h2>Performance Optimization</h2>
+                   <p>Optimize the model for speed or accuracy.</p>
+               </div>
+               <div class="card-content">
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Speed vs. Accuracy</label>
+                           <span>Balanced</span>
+                       </div>
+                       <div class="slider-labels">
+                           <span>Faster</span>
+                           <span>Balanced</span>
+                           <span>More Accurate</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="50" class="slider">
+                   </div>
+
+                   <div class="form-group">
+                       <label for="cache-duration">Cache Duration</label>
+                       <select id="cache-duration" class="select-input">
+                           <option value="15m">15 minutes</option>
+                           <option value="30m">30 minutes</option>
+                           <option value="1h" selected>1 hour</option>
+                           <option value="4h">4 hours</option>
+                           <option value="24h">24 hours</option>
+                       </select>
+                       <p class="help-text">How long to cache recommendation results before recalculating.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <div class="tab-content" id="features-tab">
+           <div class="card">
+               <div class="card-header">
+                   <h2>Feature Importance</h2>
+                   <p>Adjust the weight of different features in the recommendation algorithm.</p>
+               </div>
+               <div class="card-content">
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Skills Match</label>
+                           <span>85%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="85" class="slider">
+                       <p class="help-text">Weight given to matching job skills with requirements.</p>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Experience Level</label>
+                           <span>70%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="70" class="slider">
+                       <p class="help-text">Weight given to years of experience.</p>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Education</label>
+                           <span>60%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="60" class="slider">
+                       <p class="help-text">Weight given to education level and relevance.</p>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Location</label>
+                           <span>50%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="50" class="slider">
+                       <p class="help-text">Weight given to job location.</p>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Job Title Similarity</label>
+                           <span>75%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="75" class="slider">
+                       <p class="help-text">Weight given to similarity between job titles.</p>
+                   </div>
+
+                   <div class="form-group">
+                       <div class="slider-header">
+                           <label>Industry Experience</label>
+                           <span>65%</span>
+                       </div>
+                       <input type="range" min="0" max="100" value="65" class="slider">
+                       <p class="help-text">Weight given to experience in the relevant industry.</p>
+                   </div>
+
+                   <button class="btn btn-outline full-width">Reset to Default Weights</button>
+               </div>
+           </div>
+       </div>
+
+       <div class="tab-content" id="data-tab">
+           <div class="card">
+               <div class="card-header">
+                   <h2>Data Sources</h2>
+                   <p>Configure the data sources used for training the recommendation model.</p>
+               </div>
+               <div class="card-content">
+                   <div class="rounded-md border p-4 mb-4">
+                       <div class="flex items-center justify-between">
+                           <div class="flex items-center space-x-2">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                   <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                               </svg>
+                               <div>
+                                   <p class="font-medium">Job Listings Database</p>
+                                   <p class="text-sm text-muted-foreground">2,567 active listings</p>
+                               </div>
+                           </div>
+                           <label class="switch">
+                               <input type="checkbox" checked>
+                               <span class="slider round"></span>
+                           </label>
+                       </div>
+                   </div>
+
+                   <div class="rounded-md border p-4 mb-4">
+                       <div class="flex items-center justify-between">
+                           <div class="flex items-center space-x-2">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                   <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                               </svg>
+                               <div>
+                                   <p class="font-medium">CV Database</p>
+                                   <p class="text-sm text-muted-foreground">3,842 resumes</p>
+                               </div>
+                           </div>
+                           <label class="switch">
+                               <input type="checkbox" checked>
+                               <span class="slider round"></span>
+                           </label>
+                       </div>
+                   </div>
+
+                   <div class="rounded-md border p-4 mb-4">
+                       <div class="flex items-center justify-between">
+                           <div class="flex items-center space-x-2">
+                               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                                   <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                   <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                               </svg>
+                               <div>
+                                   <p class="font-medium">Scraped Job Data</p>
+                                   <p class="text-sm text-muted-foreground">12,458 records</p>
+                               </div>
+                           </div>
+                           <label class="switch">
+                               <input type="checkbox" checked>
+                               <span class="slider round"></span>
+                           </label>
+                       </div>
+                   </div>
+
+                   <div class="form-group">
+                       <label for="sync-frequency">Data Sync Frequency</label>
+                       <select id="sync-frequency" class="select-input">
+                           <option value="hourly">Hourly</option>
+                           <option value="daily" selected>Daily</option>
+                           <option value="weekly">Weekly</option>
+                           <option value="monthly">Monthly</option>
+                       </select>
+                       <p class="help-text">How often to synchronize data from external sources.</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <div class="tab-content" id="advanced-tab">
+           <div class="card">
+               <div class="card-header">
+                   <h2>Advanced Settings</h2>
+                   <p>Configure advanced parameters for the machine learning model.</p>
+               </div>
+               <div class="card-content">
+                   <div class="form-grid-2">
+                       <div class="form-group">
+                           <label for="learning-rate">Learning Rate</label>
+                           <input type="number" id="learning-rate" class="text-input" value="0.01" step="0.001" min="0.001" max="1">
+                           <p class="help-text">Controls how quickly the model adapts to new data.</p>
+                       </div>
+                       <div class="form-group">
+                           <label for="max-depth">Max Tree Depth</label>
+                           <input type="number" id="max-depth" class="text-input" value="6" step="1" min="1" max="20">
+                           <p class="help-text">Maximum depth of decision trees (for tree-based models).</p>
+                       </div>
+                   </div>
+
+                   <div class="form-grid-2">
+                       <div class="form-group">
+                           <label for="regularization">Regularization (L2)</label>
+                           <input type="number" id="regularization" class="text-input" value="0.1" step="0.01" min="0" max="10">
+                           <p class="help-text">Controls model complexity to prevent overfitting.</p>
+                       </div>
+                       <div class="form-group">
+                           <label for="epochs">Training Epochs</label>
+                           <input type="number" id="epochs" class="text-input" value="100" step="10" min="10" max="1000">
+                           <p class="help-text">Number of complete passes through the training dataset.</p>
+                       </div>
+                   </div>
+
+                   <hr class="my-4 border-t border-border">
+
+                   <div class="form-group">
+                       <label for="feature-engineering">Automatic Feature Engineering</label>
+                       <select id="feature-engineering" class="select-input">
+                           <option value="off">Off</option>
+                           <option value="low">Low (Basic Features)</option>
+                           <option value="medium" selected>Medium (Standard Features)</option>
+                           <option value="high">High (Advanced Features)</option>
+                       </select>
+                       <p class="help-text">Automatically generate and select features from raw data.</p>
+                   </div>
+
+                   <div class="form-group switch-group">
+                       <div>
+                           <label for="cross-validation">Cross-Validation</label>
+                           <p class="help-text">Use k-fold cross-validation during model training.</p>
+                       </div>
+                       <label class="switch">
+                           <input type="checkbox" id="cross-validation" checked>
+                           <span class="slider round"></span>
+                       </label>
+                   </div>
+
+                   <div class="form-group switch-group">
+                       <div>
+                           <label for="early-stopping">Early Stopping</label>
+                           <p class="help-text">Stop training when validation metrics no longer improve.</p>
+                       </div>
+                       <label class="switch">
+                           <input type="checkbox" id="early-stopping" checked>
+                           <span class="slider round"></span>
+                       </label>
+                   </div>
+
+                   <div class="form-group switch-group">
+                       <div>
+                           <label for="gpu-acceleration">GPU Acceleration</label>
+                           <p class="help-text">Use GPU for faster model training when available.</p>
+                       </div>
+                       <label class="switch">
+                           <input type="checkbox" id="gpu-acceleration" checked>
+                           <span class="slider round"></span>
+                       </label>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</section>

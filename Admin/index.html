@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobMatch AI - Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M6 9V2H18V9"></path>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <path d="M10 18v-7h4v7"></path>
+                        <path d="M6 22h12a2 2 0 0 0 2-2v-2H4v2a2 2 0 0 0 2 2z"></path>
+                    </svg>
+                    <span>Job Recommendation</span>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <rect width="7" height="9" x="3" y="3" rx="1"></rect>
+                        <rect width="7" height="5" x="14" y="3" rx="1"></rect>
+                        <rect width="7" height="9" x="14" y="12" rx="1"></rect>
+                        <rect width="7" height="5" x="3" y="16" rx="1"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="jobs">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                        <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"></path>
+                        <path d="M12 11h4"></path>
+                        <path d="M12 16h4"></path>
+                        <path d="M8 11h.01"></path>
+                        <path d="M8 16h.01"></path>
+                    </svg>
+                    <span>Job Listings</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="data-management">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M20 17V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2Z"></path>
+                        <path d="M12 6v8"></path>
+                        <path d="m8.5 10 7 0"></path>
+                    </svg>
+                    <span>Data Management</span>
+                </a>
+
+                <!-- <a href="#" class="nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    <span>Settings</span>
+                </a> -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation Bar -->
+            <header class="top-nav">
+                <button class="menu-toggle" id="menu-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
+                <div class="logo-mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                        <path d="M6 9V2H18V9"></path>
+                        <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                        <path d="M10 18v-7h4v7"></path>
+                        <path d="M6 22h12a2 2 0 0 0 2-2v-2H4v2a2 2 0 0 0 2 2z"></path>
+                    </svg>
+                    <span>JobMatch AI</span>
+                </div>
+                
+            </header>
+
+            <!-- Content Tabs -->
+            <div class="content-container">
+                <!-- Dashboard Tab -->
+                <section class="content-tab active" id="dashboard">
+                    <div class="page-header">
+                        <h1>Dashboard</h1>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Total Jobs</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                    <path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">2,567</div>
+                            <div class="stat-change positive">+5% from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Total CVs</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <path d="M14 2v6h6"></path>
+                                    <path d="M16 13H8"></path>
+                                    <path d="M16 17H8"></path>
+                                    <path d="M10 9H8"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">3,842</div>
+                            <div class="stat-change positive">+8% from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>Scraped Data</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                                    <path d="M3 17a2 2 0 0 1 2-2h16"></path>
+                                    <path d="M21 21H7a2 2 0 0 1 0-4h12"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">12,458</div>
+                            <div class="stat-change positive">+15% from last month</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <h3>ML Accuracy</h3>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-value">87.5%</div>
+                            <div class="stat-change positive">+2.5% from last month</div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h2>Recommendation Performance</h2>
+                                <p>Monthly success rate of job recommendations</p>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="chart-container" id="recommendation-chart"></div>
+                            </div>
+                        </div>
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h2>Data Sources</h2>
+                                <p>Distribution of data by source</p>
+                            </div>
+                            <div class="chart-placeholder">
+                                <div class="chart-container" id="data-sources-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <div class="card-header">
+                            <h2>Recent Job Matches</h2>
+                            <p>Latest successful job recommendations</p>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Job Title</th>
+                                        <th>Company</th>
+                                        <th>Location</th>
+                                        <th>Match Score</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Senior Data Scientist</td>
+                                        <td>TechCorp Inc.</td>
+                                        <td>San Francisco, CA</td>
+                                        <td>95%</td>
+                                        <td>2023-04-03</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Frontend Developer</td>
+                                        <td>WebSolutions Ltd.</td>
+                                        <td>Remote</td>
+                                        <td>92%</td>
+                                        <td>2023-04-02</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">UX Designer</td>
+                                        <td>Creative Designs</td>
+                                        <td>New York, NY</td>
+                                        <td>89%</td>
+                                        <td>2023-04-01</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">DevOps Engineer</td>
+                                        <td>CloudTech Solutions</td>
+                                        <td>Austin, TX</td>
+                                        <td>87%</td>
+                                        <td>2023-03-31</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Product Manager</td>
+                                        <td>InnovateCo</td>
+                                        <td>Chicago, IL</td>
+                                        <td>85%</td>
+                                        <td>2023-03-30</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Job Listings Tab -->
+                <section class="content-tab" id="jobs">
+                    <div class="page-header">
+                        <h1>Job Listings</h1>
+                        <div class="header-actions">
+                            <button class="btn btn-primary" id="add-job-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                </svg>
+                                Add Job
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="filter-row">
+                        <div class="search-container wide">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                            <input type="search" placeholder="Search jobs..." class="search-input">
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <div class="th-content">
+                                                Job Title
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="m18 15-6-6-6 6"></path>
+                                                </svg>
+                                            </div>
+                                        </th>
+                                        <th>Company</th>
+                                        <th>Location</th>
+                                        <th>Posted Date</th>
+                                        <th>Status</th>
+                                        <th>Applicants</th>
+                                        <th>Match Score</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="font-medium">Senior Data Scientist</td>
+                                        <td>TechCorp Inc.</td>
+                                        <td>teas nak luk watermelon</td>
+                                        <td>2023-04-01</td>
+                                        <td><span class="status-badge success">Active</span></td>
+                                        <td>24</td>
+                                        <td>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 85%"></div>
+                                                <span>85%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-menu">
+                                                <button class="action-trigger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </button>
+                                                <div class="action-dropdown">
+                                                    <a href="#">View Details</a>
+                                                    <a href="#">Edit Job</a>
+                                                    <a href="#">View Applicants</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="text-danger">Delete Job</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Frontend Developer</td>
+                                        <td>WebSolutions Ltd.</td>
+                                        <td>teas nak luk watermelon</td>
+                                        <td>2040-03-28</td>
+                                        <td><span class="status-badge success">Active</span></td>
+                                        <td>18</td>
+                                        <td>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 78%"></div>
+                                                <span>78%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-menu">
+                                                <button class="action-trigger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </button>
+                                                <div class="action-dropdown">
+                                                    <a href="#">View Details</a>
+                                                    <a href="#">Edit Job</a>
+                                                    <a href="#">View Applicants</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="text-danger">Delete Job</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">UX Designer</td>
+                                        <td>Creative Designs</td>
+                                        <td>teas nak luk watermelon</td>
+                                        <td>2040-03-25</td>
+                                        <td><span class="status-badge warning">Paused</span></td>
+                                        <td>12</td>
+                                        <td>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 92%"></div>
+                                                <span>92%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-menu">
+                                                <button class="action-trigger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </button>
+                                                <div class="action-dropdown">
+                                                    <a href="#">View Details</a>
+                                                    <a href="#">Edit Job</a>
+                                                    <a href="#">View Applicants</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="text-danger">Delete Job</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">DevOps Engineer</td>
+                                        <td>CloudTech Solutions</td>
+                                        <td>teas nak luk watermelon</td>
+                                        <td>2040-03-22</td>
+                                        <td><span class="status-badge success">Active</span></td>
+                                        <td>9</td>
+                                        <td>
+                                            <div class="progress-container">
+                                                <div class="progress-bar warning" style="width: 65%"></div>
+                                                <span>65%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-menu">
+                                                <button class="action-trigger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </button>
+                                                <div class="action-dropdown">
+                                                    <a href="#">View Details</a>
+                                                    <a href="#">Edit Job</a>
+                                                    <a href="#">View Applicants</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="text-danger">Delete Job</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-medium">Product Manager</td>
+                                        <td>InnovateCo</td>
+                                        <td>teas nak luk watermelon</td>
+                                        <td>2023-03-20</td>
+                                        <td><span class="status-badge neutral">Filled</span></td>
+                                        <td>32</td>
+                                        <td>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 88%"></div>
+                                                <span>88%</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="action-menu">
+                                                <button class="action-trigger">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="19" cy="12" r="1"></circle>
+                                                        <circle cx="5" cy="12" r="1"></circle>
+                                                    </svg>
+                                                </button>
+                                                <div class="action-dropdown">
+                                                    <a href="#">View Details</a>
+                                                    <a href="#">Edit Job</a>
+                                                    <a href="#">View Applicants</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a href="#" class="text-danger">Delete Job</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Data Management Tab -->
+                <section class="content-tab" id="data-management">
+                    <div class="page-header">
+                        <h1>Data Management</h1>
+                        <div class="header-actions">
+                            <button class="btn btn-primary" id="scrape-data-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                                    <path d="M3 17a2 2 0 0 1 2-2h16"></path>
+                                    <path d="M21 21H7a2 2 0 0 1 0-4h12"></path>
+                                </svg>
+                                Scrape Data
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="tabs">
+                        <div class="tabs-list">
+                            <button class="tab-button active" data-tab="scrape">Data Scraping</button>
+                            <button class="tab-button" data-tab="clean">Data Cleaning</button>
+                            <button class="tab-button" data-tab="import">Import/Export</button>
+                        </div>
+
+                        <div class="tab-content active" id="scrape-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Data Scraping Configuration</h2>
+                                    <p>Configure sources and parameters for data collection</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="form-group">
+                                        <label for="scrape-source">Data Source</label>
+                                        <select id="scrape-source" class="select-input">
+                                            <option value="indeed">Indeed</option>
+                                            <option value="linkedin">LinkedIn</option>
+                                            <option value="glassdoor">CamHR</option>
+                                            <option value="monster">Bongthom</option>
+                                            <option value="monster">Workingna</option>
+                                            <option value="custom">Custom URL</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- <div class="form-grid-2">
+                                        <div class="form-group">
+                                            <label for="job-keywords">Job Keywords</label>
+                                            <input type="text" id="job-keywords" class="text-input" placeholder="e.g. software engineer, developer">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="job-location">Location</label>
+                                            <input type="text" id="job-location" class="text-input" placeholder="e.g. San Francisco, CA">
+                                        </div>
+                                    </div> -->
+
+                                    <div class="form-group">
+                                        <label for="custom-url">Custom URL (if selected)</label>
+                                        <input type="text" id="custom-url" class="text-input" placeholder="https://example.com/jobs">
+                                        <p class="help-text">Enter the full URL of the job board or website to scrape.</p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="slider-header">
+                                            <label for="scrape-depth">Scraping Depth</label>
+                                            <span>Medium (50 pages)</span>
+                                        </div>
+                                        <input type="range" id="scrape-depth" min="1" max="100" value="50" class="slider">
+                                        <p class="help-text">Number of pages to scrape. Higher values collect more data but take longer.</p>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="scrape-details">Scrape Detailed Job Descriptions</label>
+                                            <p class="help-text">Collect full job descriptions by visiting each job page.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="scrape-details" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="scrape-company">Scrape Company Information</label>
+                                            <p class="help-text">Collect additional information about the hiring companies.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="scrape-company" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="schedule-scrape">Schedule Regular Scraping</label>
+                                            <p class="help-text">Automatically run scraping at scheduled intervals.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="schedule-scrape">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <!-- <div class="form-group">
+                                        <label for="schedule-frequency">Scraping Frequency</label>
+                                        <select id="schedule-frequency" class="select-input" disabled>
+                                            <option value="daily">Daily</option>
+                                            <option value="weekly" selected>Weekly</option>
+                                            <option value="biweekly">Bi-weekly</option>
+                                            <option value="monthly">Monthly</option>
+                                        </select> -->
+                                    </div>
+
+                                    <button class="btn btn-primary full-width" id="start-scrape-btn">
+                                        Start Scraping
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Recent Scraping Jobs</h2>
+                                    <p>History of data collection tasks</p>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="data-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Source</th>
+                                                <th>Keywords</th>
+                                                <th>Records</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2023-04-03</td>
+                                                <td>Indeed</td>
+                                                <td>Software Engineer</td>
+                                                <td>458</td>
+                                                <td><span class="status-badge success">Completed</span></td>
+                                                <td>
+                                                    <div class="action-menu">
+                                                        <button class="action-trigger">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </button>
+                                                        <div class="action-dropdown">
+                                                            <a href="#">View Details</a>
+                                                            <a href="#">Export Data</a>
+                                                            <a href="#">Run Again</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="text-danger">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2023-04-01</td>
+                                                <td>LinkedIn</td>
+                                                <td>Data Scientist</td>
+                                                <td>325</td>
+                                                <td><span class="status-badge success">Completed</span></td>
+                                                <td>
+                                                    <div class="action-menu">
+                                                        <button class="action-trigger">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </button>
+                                                        <div class="action-dropdown">
+                                                            <a href="#">View Details</a>
+                                                            <a href="#">Export Data</a>
+                                                            <a href="#">Run Again</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="text-danger">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2023-03-28</td>
+                                                <td>CamHR</td>
+                                                <td>Product Manager</td>
+                                                <td>287</td>
+                                                <td><span class="status-badge success">Completed</span></td>
+                                                <td>
+                                                    <div class="action-menu">
+                                                        <button class="action-trigger">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <circle cx="12" cy="12" r="1"></circle>
+                                                                <circle cx="19" cy="12" r="1"></circle>
+                                                                <circle cx="5" cy="12" r="1"></circle>
+                                                            </svg>
+                                                        </button>
+                                                        <div class="action-dropdown">
+                                                            <a href="#">View Details</a>
+                                                            <a href="#">Export Data</a>
+                                                            <a href="#">Run Again</a>
+                                                            <div class="dropdown-divider"></div>
+                                                            <a href="#" class="text-danger">Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="clean-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Data Cleaning Tools</h2>
+                                    <p>Clean and preprocess data for better model performance</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="form-group">
+                                        <label for="data-source">Data Source to Clean</label>
+                                        <select id="data-source" class="select-input">
+                                            <option value="all">All Data Sources</option>
+                                            <option value="jobs">Job Listings</option>
+                                            <option value="cvs">CV Database</option>
+                                            <option value="scraped">Scraped Data</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="remove-duplicates">Remove Duplicates</label>
+                                            <p class="help-text">Identify and remove duplicate entries.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="remove-duplicates" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="standardize-titles">Standardize Job Titles</label>
+                                            <p class="help-text">Normalize job titles to standard formats.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="standardize-titles" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="extract-skills">Extract Skills</label>
+                                            <p class="help-text">Automatically extract skills from job descriptions.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="extract-skills" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="fix-missing">Fix Missing Values</label>
+                                            <p class="help-text">Attempt to fill in missing data fields.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="fix-missing" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="text-normalization">Text Normalization</label>
+                                            <p class="help-text">Apply stemming, lemmatization, and other NLP techniques.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="text-normalization" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <!-- <div class="form-group">
+                                        <div class="slider-header">
+                                            <label for="cleaning-intensity">Cleaning Intensity</label>
+                                            <span>Medium</span>
+                                        </div>
+                                        <input type="range" id="cleaning-intensity" min="1" max="100" value="50" class="slider">
+                                        <p class="help-text">Higher values apply more aggressive cleaning but may remove useful data.</p>
+                                    </div> -->
+
+                                    <button class="btn btn-primary full-width" id="start-cleaning-btn">
+                                        Start Cleaning Process
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Data Quality Metrics</h2>
+                                    <p>Current data quality assessment</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="stats-grid">
+                                        <div class="stat-card">
+                                            <div class="stat-header">
+                                                <h3>Completeness</h3>
+                                            </div>
+                                            <div class="stat-value">92%</div>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 92%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-header">
+                                                <h3>Consistency</h3>
+                                            </div>
+                                            <div class="stat-value">87%</div>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 87%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-header">
+                                                <h3>Accuracy</h3>
+                                            </div>
+                                            <div class="stat-value">94%</div>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 94%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="stat-card">
+                                            <div class="stat-header">
+                                                <h3>Uniqueness</h3>
+                                            </div>
+                                            <div class="stat-value">89%</div>
+                                            <div class="progress-container">
+                                                <div class="progress-bar" style="width: 89%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-content" id="import-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h2>Import Data</h2>
+                                    <p>Upload data from external sources</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="form-group">
+                                        <label for="import-type">Import Type</label>
+                                        <select id="import-type" class="select-input">
+                                            <option value="jobs">Job Listings</option>
+                                            <option value="cvs">CV/Resume Data</option>
+                                            <option value="skills">Skills Database</option>
+                                            <option value="companies">Company Information</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="file-format">File Format</label>
+                                        <select id="file-format" class="select-input">
+                                            <option value="csv">CSV</option>
+                                            <option value="json">JSON</option>
+                                            <option value="excel">Excel</option>
+                                            <option value="xml">XML</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="file-upload">Upload File</label>
+                                        <input type="file" id="file-upload" class="text-input">
+                                        <p class="help-text">Maximum file size: 50MB</p>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="clean-import">Clean Data During Import</label>
+                                            <p class="help-text">Automatically clean and normalize imported data.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="clean-import" checked>
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="overwrite-existing">Overwrite Existing Data</label>
+                                            <p class="help-text">Replace existing records with imported data.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="overwrite-existing">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <button class="btn btn-primary full-width">
+                                        Import Data
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- <div class="card">
+                                <div class="card-header">
+                                    <h2>Export Data</h2>
+                                    <p>Download data for external use</p>
+                                </div>
+                                <div class="card-content">
+                                    <div class="form-group">
+                                        <label for="export-type">Export Type</label>
+                                        <select id="export-type" class="select-input">
+                                            <option value="all">All Data</option>
+                                            <option value="jobs">Job Listings</option>
+                                            <option value="cvs">CV/Resume Data</option>
+                                            <option value="matches">Job Matches</option>
+                                            <option value="analytics">Analytics Data</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="export-format">File Format</label>
+                                        <select id="export-format" class="select-input">
+                                            <option value="csv">CSV</option>
+                                            <option value="json">JSON</option>
+                                            <option value="excel">Excel</option>
+                                            <option value="pdf">PDF Report</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="date-range">Date Range</label>
+                                        <div class="form-grid-2">
+                                            <input type="date" id="date-from" class="text-input">
+                                            <input type="date" id="date-to" class="text-input">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group switch-group">
+                                        <div>
+                                            <label for="include-sensitive">Include Sensitive Data</label>
+                                            <p class="help-text">Export personally identifiable information.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" id="include-sensitive">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+
+                                    <button class="btn btn-primary full-width">
+                                        Export Data
+                                    </button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </section>
+
+
+
+
+
+                <!-- ML machine learning model tab -->
+
+
+                
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="add-job-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Job Listing</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="job-title">Job Title</label>
+                    <input type="text" id="job-title" class="text-input" placeholder="e.g. Senior Software Engineer">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company" class="text-input" placeholder="e.g. TechCorp Inc.">
+                </div>
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" class="text-input" placeholder="e.g. San Francisco, CA">
+                    </div>
+                    <div class="form-group">
+                        <label for="job-type">Job Type</label>
+                        <select id="job-type" class="select-input">
+                            <option value="">Select type</option>
+                            <option value="full-time">Full-time</option>
+                            <option value="part-time">Part-time</option>
+                            <option value="contract">Contract</option>
+                            <option value="internship">Internship</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description">Job Description</label>
+                    <textarea id="description" class="text-input" rows="5" placeholder="Enter job description..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="skills">Required Skills (comma separated)</label>
+                    <input type="text" id="skills" class="text-input" placeholder="e.g. JavaScript, React, Node.js">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-add-job">Cancel</button>
+                <button class="btn btn-primary" id="create-job">Create Job</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scrape Data Modal -->
+    <div class="modal" id="scrape-data-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Scrape Data</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="scrape-url">URL to Scrape</label>
+                    <input type="text" id="scrape-url" class="text-input" placeholder="https://example.com/jobs">
+                </div>
+                <div class="form-group">
+                    <label for="scrape-depth">Scraping Depth</label>
+                    <select id="scrape-depth" class="select-input">
+                        <option value="light">Light (1-10 pages)</option>
+                        <option value="medium" selected>Medium (11-50 pages)</option>
+                        <option value="deep">Deep (51-100 pages)</option>
+                        <option value="complete">Complete (All pages)</option>
+                    </select>
+                </div>
+                <div class="form-group switch-group">
+                    <div>
+                        <label for="scrape-auto-clean">Auto-Clean Data</label>
+                        <p class="help-text">Automatically clean and normalize scraped data.</p>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="scrape-auto-clean" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="cancel-scrape">Cancel</button>
+                <button class="btn btn-primary" id="start-scrape">Start Scraping</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Additional JavaScript for new features
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scrape Data Button
+            const scrapeDataBtn = document.getElementById('scrape-data-btn');
+            const scrapeDataModal = document.getElementById('scrape-data-modal');
+            const cancelScrapeBtn = document.getElementById('cancel-scrape');
+            const startScrapeBtn = document.getElementById('start-scrape');
+            
+            if (scrapeDataBtn && scrapeDataModal) {
+                scrapeDataBtn.addEventListener('click', function() {
+                    scrapeDataModal.classList.add('active');
+                });
+            }
+            
+            if (cancelScrapeBtn) {
+                cancelScrapeBtn.addEventListener('click', function() {
+                    scrapeDataModal.classList.remove('active');
+                });
+            }
+            
+            if (startScrapeBtn) {
+                startScrapeBtn.addEventListener('click', function() {
+                    // Show loading state
+                    this.disabled = true;
+                    this.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon spin">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                        </svg>
+                        Scraping...
+                    `;
+                    
+                    // Simulate scraping process
+                    setTimeout(() => {
+                        scrapeDataModal.classList.remove('active');
+                        alert('Data scraping completed successfully! 287 new records added.');
+                        
+                        // Reset button
+                        startScrapeBtn.disabled = false;
+                        startScrapeBtn.innerHTML = 'Start Scraping';
+                    }, 3000);
+                });
+            }
+            
+            // Data Cleaning Button
+            const startCleaningBtn = document.getElementById('start-cleaning-btn');
+            
+            if (startCleaningBtn) {
+                startCleaningBtn.addEventListener('click', function() {
+                    // Show loading state
+                    this.disabled = true;
+                    this.innerHTML = `
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon spin">
+                            <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+                        </svg>
+                        Cleaning...
+                    `;
+                    
+                    // Simulate cleaning process
+                    setTimeout(() => {
+                        alert('Data cleaning completed successfully! Data quality improved by 8%.');
+                        
+                        // Reset button
+                        startCleaningBtn.disabled = false;
+                        startCleaningBtn.innerHTML = 'Start Cleaning Process';
+                    }, 3000);
+                });
+            }
+            
+            // Schedule scraping toggle
+            const scheduleScrape = document.getElementById('schedule-scrape');
+            const scheduleFrequency = document.getElementById('schedule-frequency');
+            
+            if (scheduleScrape && scheduleFrequency) {
+                scheduleScrape.addEventListener('change', function() {
+                    scheduleFrequency.disabled = !this.checked;
+                });
+            }
+            
+            // Initialize additional charts
+            const dataSourcesChart = document.getElementById('data-sources-chart');
+            
+            if (dataSourcesChart) {
+                dataSourcesChart.innerHTML = '<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #6b7280;">Data Sources Distribution Chart</div>';
+            }
+        });
+    </script>
+</body>
+</html>
