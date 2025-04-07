@@ -19,13 +19,22 @@
         <!-- Sidebar -->
         <div class="sidebar">
             <div class="nav-item" data-page="dashboard">
-                <span>Dash Board</span>
+                <i class="fas fa-tachometer-alt"></i>
+                <span>Dashboard</span>
             </div>
             <div class="nav-item" data-page="job-lists">
+                <i class="fas fa-list-ul"></i>
                 <span>Job Lists</span>
             </div>
             <div class="nav-item" data-page="data-management">
+                <i class="fas fa-database"></i>
                 <span>Data Management</span>
+            </div>
+            <div class="nav-item back-item">
+                <button>
+                    <i class="fas fa-arrow-left"></i>
+                    <a href="../index.html" class="back-button">Back</a>
+                </button>
             </div>
         </div>
 
@@ -270,7 +279,7 @@
                         
                         <div class="form-section">
                             <h4>Custom URL (if selected)</h4>
-                            <input type="text" placeholder="https://www.figma.com/design/" value="https://www.figma.com/design/" />
+                            <input type="text" placeholder="https://www.example.com"  />
                             <p class="form-hint">Enter the full URL of the job board or website to scrape.</p>
                         </div>
                         
